@@ -1,0 +1,37 @@
+<h2>Adding a new contact</h2>
+<div class="input-container">
+  <label>First name</label>
+  <input
+    type="text"
+    name="firstName"
+    class="input-control"
+    value="<%= firstName %>"
+  />
+</div>
+<div class="input-container">
+  <label>Last name</label>
+  <input
+    type="text"
+    name="lastName"
+    class="input-control"
+    value="<%= lastName %>"
+  />
+</div>
+<div class="input-container">
+  <label>Email</label>
+  <input type="email" name="email" class="input-control" value="<%= email %>" />
+</div>
+<div class="input-container">
+  <label>Contact number</label>
+  <input
+    type="tel"
+    name="contactNumber"
+    class="input-control"
+    value="<%= contactNumber %>"
+  />
+</div>
+
+<button type="submit" class="btn"><i class="fas fa-save"></i> Save</button>
+<a href="/contacts" class="btn btn-secondary">
+  <i class="fas fa-arrow-left"></i> Go back
+</a>

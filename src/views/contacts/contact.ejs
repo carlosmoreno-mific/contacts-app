@@ -1,0 +1,11 @@
+<div class="container">
+  <h3><%= contact.firstName %> <%= contact.lastName %></h3>
+  <p><i class="fas fa-envelope"></i> Email: <%= contact.email %></p>
+  <p>
+    <i class="fas fa-phone"></i> Contact number: <%= contact.contactNumber %>
+  </p>
+</div>
+<div class="container">
+  <a class="btn btn-secondary" href="/contacts">Back</a>
+  <a class="btn" href="/contacts/<%= contact.id %>/edit">Edit</a>
+</div>

@@ -1,0 +1,55 @@
+<div class="container mt-1">
+  <form action="/users/register" method="POST">
+    <%- include("../partials/messages") %>
+
+    <div class="input-container">
+      <label>Your name</label>
+      <input
+        name="name"
+        type="text"
+        class="input-control"
+        required
+        value="<%= name %>"
+      />
+    </div>
+
+    <div class="input-container">
+      <label>Email</label>
+      <input
+        name="email"
+        type="email"
+        class="input-control"
+        required
+        value="<%= email %>"
+      />
+    </div>
+
+    <div class="input-container">
+      <label>Password</label>
+      <input
+        name="password"
+        type="password"
+        class="input-control"
+        required
+        value="<%= password %>"
+      />
+    </div>
+
+    <div class="input-container">
+      <label>Confirm your password</label>
+      <input
+        name="confirmPassword"
+        type="password"
+        class="input-control"
+        required
+        value="<%= confirmPassword %>"
+      />
+    </div>
+
+    <button class="btn">Register</button>
+
+    <p class="text-secondary mt-1">
+      Do you have an account? Go <a href="/users/login">here</a>.
+    </p>
+  </form>
+</div>

@@ -1,0 +1,19 @@
+<div class="container">
+  <form class="flex">
+    <input type="text" class="input-control" placeholder="Find a contact..." />
+    <button class="btn"><i class="fas fa-search"></i></button>
+  </form>
+</div>
+<div class="container">
+  <%- include("../partials/messages") %> <% if (contacts.length != 0) { %> <%
+  contacts.forEach(contact => { %>
+  <div class="card" onclick="window.location = '/contacts/<%= contact.id %>'">
+    <h4><%= contact.firstName %> <%= contact.lastName %></h4>
+    <p><%= contact.email %></p>
+  </div>
+  <% }) %> <% } else { %>
+  <div class="container">
+    <p class="text-center text-secondary">Any contacts found.</p>
+  </div>
+  <% } %>
+</div>

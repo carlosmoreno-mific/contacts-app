@@ -1,0 +1,19 @@
+<div class="container mt-1">
+  <form action="/users/login" method="POST">
+    <%- include("../partials/messages") %>
+    <div class="input-container">
+      <label>Email</label>
+      <input name="email" type="email" class="input-control" />
+    </div>
+    <div class="input-container">
+      <label>Password</label>
+      <input name="password" type="password" class="input-control" />
+    </div>
+
+    <button class="btn">Login</button>
+
+    <p class="text-secondary mt-1">
+      Don't have an account? Go <a href="/users/register">here</a>.
+    </p>
+  </form>
+</div>
