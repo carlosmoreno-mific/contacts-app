@@ -1,6 +1,7 @@
 const { join } = require("path");
 const dotenv = require("dotenv");
 const express = require("express");
+const methodOverride = require("method-override");
 const expressLayouts = require("express-ejs-layouts");
 const passport = require("passport");
 const flash = require("connect-flash");
@@ -29,6 +30,7 @@ app.set("layout", "layouts/main");
 
 // Express body parser
 app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride("_method"));
 
 // Middlewares
 app.use(

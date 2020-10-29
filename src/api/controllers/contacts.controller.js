@@ -80,24 +80,73 @@ contactsController.addContact = async (req, res, next) => {
 // @route   GET /contacts/:id
 // @access  Private
 contactsController.editContact = async (req, res, next) => {
-  // TODO: edit contact page
-  res.send("editing a contact 😀");
+  let errors = [];
+
+  try {
+    const {
+      _id,
+      firstName,
+      lastName,
+      email,
+      contactNumber,
+    } = await Contact.findById(req.params.id);
+
+    res.render("contacts/edit", {
+      _id,
+      firstName,
+      lastName,
+      email,
+      contactNumber,
+    });
+  } catch (err) {
+    console.log(err);
+    errors = errors.push({ message: "Server error 😥" });
+    res.render("contacts/edit", {
+      errors,
+      _id,
+      firstName,
+      lastName,
+      email,
+      contactNumber,
+    });
+  }
 };
 
 // @desc    Send contact data
 // @route   PUT /contacts
 // @access  Private
 contactsController.updateContact = async (req, res, next) => {
-  // TODO: edit contact
-  res.send("updating a contact");
+  let errors = [];
+  const { firstName, lastName, email, contactNumber } = req.body;
+  try {
+    await Contact.findByIdAndUpdate(req.params.id, {
+      firstName,
+      lastName,
+      email,
+      contactNumber,
+    });
+    req.flash("success_message", "Contact added successfully");
+    res.redirect("/contacts");
+  } catch (err) {
+    if (err.name === "ValidationError") {
+      errors = Object.values(err.errors).map((val) => {
+        return { message: val.message };
+      });
+      res.redirect(`/contacts/${req.params.id}/edit`, { errors });
+    } else {
+      errors = errors.push({ message: "Server error 😥" });
+      res.redirect(`/contacts/${req.params.id}/edit`, { errors });
+    }
+  }
 };
 
 // @desc    Delete contact data
 // @route   DELETE /contacts/:id
 // @access  Private
 contactsController.deleteContact = async (req, res, next) => {
-  // TODO: delete contact
-  res.send("Deleting a contact");
+  await Contact.findByIdAndDelete(req.params.id);
+  req.flash("success_message", "Contact deleted successfully");
+  res.redirect("/contacts");
 };
 
 module.exports = contactsController;

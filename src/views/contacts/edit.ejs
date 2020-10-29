@@ -1,0 +1,8 @@
+<div class="container mt-1">
+  <form action="/contacts/<%= _id %>?_method=PUT" method="POST">
+    <%- include("../partials/messages") %>
+    <h2>Editing a contact</h2>
+    <input type="hidden" name="_method" value="PUT" />
+    <%- include("./_form") %>
+  </form>
+</div>

@@ -102,6 +102,10 @@ h6 {
   line-height: 1.2em;
 }
 
+p {
+  margin-bottom: 0.5em;
+}
+
 .container {
   max-width: 1100px;
   margin: 0 auto;
@@ -128,6 +132,10 @@ h6 {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.right {
+  float: right;
 }
 
 form {
@@ -176,6 +184,12 @@ label {
   background-color: var(--secondary-color);
   color: var(--primary-color);
   border: 1px solid var(--primary-color);
+}
+
+.btn-danger {
+  background-color: var(--error-color);
+  border: 1px solid#ef8d8d;
+  color: var(--main-text-color);
 }
 
 .btn:hover {
